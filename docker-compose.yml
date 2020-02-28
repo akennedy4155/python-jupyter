@@ -1,13 +1,13 @@
-version: '0.1'
+version: '3.3'
 
 services:
     python-jupyter:
-        image: fastai-docker
+        build: .
         volumes:
-            - fastai-docker:/data
+            - notebook-volume:/data
         ports: 
             - "8888:8888"
         command: jupyter notebook --ip 0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.password=''
 
 volumes:
-    fastai-volume:
+    notebook-volume:
